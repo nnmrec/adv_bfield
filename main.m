@@ -105,6 +105,29 @@ for n = 1:numel(timeID)
 
 end
 
+%% plot the positions of the ADVs
+figure
+hold on
+for n = 1:numel(timeID)
+    xi = v0(n).pos(1);
+    yi = v0(n).pos(2);
+    zi = v0(n).pos(3);
+    plot3(xi, yi, zi, 'ok')
+    
+    xo = v1(n).pos(1);
+    yo = v1(n).pos(2);
+    zo = v1(n).pos(3);
+    plot3(xo, yo, zo, 'or')
+    
+end
+
+title('ADV positions')
+xlabel('streamwise, x [m]')
+ylabel('cross flow, y [m]')
+zlabel('depth, z [m]')
+box on; grid on;
+axis vis3d
+
 
 %%
 n_samples   = numel(v0.U(:,1));
